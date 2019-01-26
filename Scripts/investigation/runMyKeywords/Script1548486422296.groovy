@@ -1,17 +1,14 @@
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject as TestObject
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
-TestObject newTestObject(String expression) {
-	TestObject to = new TestObject()
-	to.addProperty("xpath", ConditionType.EQUALS, expression)
-	return to
-}
+investigation.Influencer.influence()
 
-CustomKeywords.'investigation.Influencer.pandemic'()
+TestObject to = findTestObject('Page_CURA Healthcare Service_top/a_Make Appointment')
+System.out.println "to is ${to}"
 
-
-CustomKeywords.'investigation.MyKeywords.click'(newTestObject("//*[@id='Doraemon']"))
-CustomKeywords.'investigation.MyKeywords.setText'(newTestObject("//*[@id='Doraemon']"), "Good morning!")
-def t = CustomKeywords.'investigation.MyKeywords.getText'(newTestObject("//*[@id='Doraemon']"))
+investigation.MyKeywords.click(to)
+investigation.MyKeywords.setText(to, "Good morning!")
+def t = investigation.MyKeywords.getText(to)
 
  
